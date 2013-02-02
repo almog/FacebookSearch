@@ -88,7 +88,7 @@ $(function() {
     }
   }
 
-  $.getJSON( 'http://graph.facebook.com/search?callback=?', {'q':params.q, 'type':'post'}, handleSearchResults);
+  $.getJSON( 'http://graph.facebook.com/search?callback=?', {'q':escape(params.q), 'type':'post'}, handleSearchResults);
 
   function body(post) {
     var body = $.map(['message','caption','description','name'],function(prop) {return post[prop] || '';}).join(' ');
